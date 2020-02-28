@@ -70,5 +70,5 @@ gulp.task('lint:json', () => {
 });
 ```
 
-## License
+## License
 MIT
