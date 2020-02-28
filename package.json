@@ -1,9 +1,9 @@
 {
     "name": "gulp-data-validate",
     "version": "0.1.0",
-    "description": "Validate Estàtico Nou modules via JSON schemas with Ajv",
+    "description": "Validate data files against their respective JSON schemas",
     "main": "index.js",
-    "repository": "https://git.unic.com/scm/~robin.loeffel/gulp-data-validate.git",
+    "repository": "unic/gulp-data-validate",
     "author": "Robin Löffel <robin.loeffel@unic.com> (unic.com)",
     "license": "MIT",
     "engines": {

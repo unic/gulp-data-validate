@@ -9,7 +9,7 @@ const $refParser = require('json-schema-ref-parser');
 const pluginName = 'gulp-data-validate';
 
 module.exports = ({
-    schemaSuffix = '.schema.js',
+    schemaSuffix = '.schema.json',
     failOnError = false
 } = {}) => {
     const stream = new Transform({ objectMode: true });
