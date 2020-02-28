@@ -5,7 +5,7 @@
 Uses [ajv](https://github.com/epoberezkin/ajv), [json-schema-ref-parser](https://github.com/APIDevTools/json-schema-ref-parser) and [import-fresh](https://github.com/sindresorhus/import-fresh) under the hood.
 
 ## How
-Have a `*.data.js` and a `*.schema.json` file for your module on the same level. Pass in the data file to the plugin, and, boom: Check whether it's valid. If it's not, it'll log what's to be done.
+Have a `*.data.js` and a `*.schema.json` file for your module on the same level. Pass in the data file to the plugin, and, boom: See whether it's valid. If it's not, it'll log what's to be done.
 
 ```bash
 yarn add gulp-data-validate --dev
@@ -43,6 +43,8 @@ const defaultOptions = {
     failOnError: false
 };
 ```
+
+If your schemas are just named `*.json` and you want the build to fail on error (nice for CI-purposes), your folder structure and config would look like this:
 
 ```
 v modules
