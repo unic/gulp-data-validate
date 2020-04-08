@@ -1,6 +1,6 @@
 {
     "name": "gulp-data-validate",
-    "version": "0.2.0",
+    "version": "0.2.1",
     "description": "Validate data files against their respective JSON schemas",
     "main": "index.js",
     "repository": "unic/gulp-data-validate",
