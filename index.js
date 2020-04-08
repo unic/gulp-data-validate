@@ -1,4 +1,5 @@
 const { Transform } = require('stream');
+const fs = require('fs');
 const importFresh = require('import-fresh');
 const Ajv = require('ajv');
 const PluginError = require('plugin-error');
@@ -14,9 +15,15 @@ module.exports = ({
 } = {}) => {
     const stream = new Transform({ objectMode: true });
 
-    stream._transform = async (file, enc, cb) => {
+    stream._transform = async (file, enc, done) => {
         const ajv = new Ajv({ allErrors: true });
         const schemaPath = file.path.replace('.data.js', schemaSuffix);
+
+        if (!fs.existsSync(schemaPath)) {
+            fancyLog(`${chalk.cyan(pluginName)}: couldn't find a schema for ${chalk.yellow(file.relative)}, skipping it`);
+            done(null, file);
+            return;
+        }
 
         try {
             const schemaData = importFresh(schemaPath);
@@ -43,7 +50,7 @@ module.exports = ({
                 }
             });
 
-            cb(null, file);
+            done(null, file);
         } catch (error) {
             stream.emit('error', new PluginError(pluginName, error, {
                 fileName: file.path

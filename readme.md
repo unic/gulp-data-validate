@@ -1,5 +1,5 @@
 # gulp-data-validate
-[![latest version on npm](https://img.shields.io/npm/v/gulp-data-validate)](https://www.npmjs.com/package/gulp-data-validate) [![npm downloads a month](https://img.shields.io/npm/dm/gulp-data-validate)](https://www.npmjs.com/package/gulp-data-validate) [![required node version](https://img.shields.io/node/v/gulp-data-validate)](https://github.com/nodejs/Release) [![dependency status](https://img.shields.io/david/unic/gulp-data-validate)](https://david-dm.org/unic/gulp-data-validate) [![package license](https://img.shields.io/npm/l/gulp-data-validate)](license)
+[![latest version on npm](https://img.shields.io/npm/v/gulp-data-validate)](https://www.npmjs.com/package/gulp-data-validate) [![npm downloads a month](https://img.shields.io/npm/dm/gulp-data-validate)](https://www.npmjs.com/package/gulp-data-validate) [![required node version](https://img.shields.io/node/v/gulp-data-validate)](https://github.com/nodejs/Release) [![package license](https://img.shields.io/npm/l/gulp-data-validate)](license)
 > Validate data files against their respective JSON schemas
 
 Uses [ajv](https://github.com/epoberezkin/ajv), [json-schema-ref-parser](https://github.com/APIDevTools/json-schema-ref-parser) and [import-fresh](https://github.com/sindresorhus/import-fresh) under the hood.

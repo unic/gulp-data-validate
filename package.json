@@ -1,6 +1,6 @@
 {
     "name": "gulp-data-validate",
-    "version": "0.1.1",
+    "version": "0.2.0",
     "description": "Validate data files against their respective JSON schemas",
     "main": "index.js",
     "repository": "unic/gulp-data-validate",
@@ -31,8 +31,7 @@
     },
     "devDependencies": {
         "eslint": "^6.8.0",
-        "eslint-config-sweet": "^0.2.2",
-        "gulp": "^4.0.2"
+        "eslint-config-sweet": "^0.2.2"
     },
     "eslintConfig": {
         "extends": "sweet"
