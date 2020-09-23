@@ -1,5 +1,6 @@
 const { Transform } = require('stream');
 const fs = require('fs');
+const path = require('path');
 const importFresh = require('import-fresh');
 const Ajv = require('ajv');
 const PluginError = require('plugin-error');
@@ -11,15 +12,27 @@ const pluginName = 'gulp-data-validate';
 
 module.exports = ({
     schemaSuffix = '.schema.json',
-    failOnError = false
+    failOnError = false,
+    ignorePrefix = '_'
 } = {}) => {
     const stream = new Transform({ objectMode: true });
 
     stream._transform = async (file, enc, done) => {
         const ajv = new Ajv({ allErrors: true });
         const schemaPath = file.path.replace('.data.js', schemaSuffix);
+        const fileName = path.basename(file.path);
+
+        if (fileName.indexOf(ignorePrefix) === 0) {
+            done(null, file);
+            return;
+        }
 
         if (!fs.existsSync(schemaPath)) {
+            if (fileName.indexOf(ignorePrefix) === 0) {
+                done(null, file);
+                return;
+            }
+
             fancyLog(`${chalk.cyan(pluginName)}: couldn't find a schema for ${chalk.yellow(file.relative)}, skipping it`);
             done(null, file);
             return;
