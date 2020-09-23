@@ -35,16 +35,17 @@ gulp.task('lint:json', () => {
 ```
 
 ## Options
-You can pass in an object containing two keys `schemaSuffix` and `failOnError`. With those two, you can adapt to your naming scheme and control whether the build should fail when the data files aren't valid.
+You can pass in an object containing three keys: `schemaSuffix`, `failOnError` and `ignorePrefix`. With those three, you can adapt to your naming scheme and control whether the build should fail when the data files aren't valid.
 
 ```js
 const defaultOptions = {
     schemaSuffix: '.schema.json',
-    failOnError: false
+    failOnError: false,
+    ignorePrefix: '_'
 };
 ```
 
-If your schemas are just named `*.json` and you want the build to fail on error (nice for CI-purposes), your folder structure and config would look like this:
+If your schemas are just named `*.json`, you want to skip schema validation for files beginning with `_` and you want the build to fail on error (nice for CI-purposes), your folder structure and config would look like this:
 
 ```
 v modules
@@ -54,6 +55,10 @@ v modules
         > my-module.js
         > my-module.data.js
         > my-module.json
+        v partials
+            _my-partial.hbs
+            _my-partial.scss
+            _my-partial.data.js
     > my-other-module
     > another-one
     > best-module
@@ -67,7 +72,8 @@ gulp.task('lint:json', () => {
     return gulp.src('modules/**/*.data.js')
         .pipe(dataValidate({
             schemaSuffix: '.json',
-            failOnError: true
+            failOnError: true,
+            ignorePrefix: '_'
         }));
 });
 ```
