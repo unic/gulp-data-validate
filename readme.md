@@ -35,7 +35,7 @@ gulp.task('lint:json', () => {
 ```
 
 ## Options
-You can pass in an object containing three keys `schemaSuffix` and `failOnError`, `ignorePrefix`. With those three, you can adapt to your naming scheme and control whether the build should fail when the data files aren't valid.
+You can pass in an object containing three keys: `schemaSuffix`, `failOnError` and `ignorePrefix`. With those three, you can adapt to your naming scheme and control whether the build should fail when the data files aren't valid.
 
 ```js
 const defaultOptions = {
