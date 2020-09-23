@@ -22,11 +22,6 @@ module.exports = ({
         const schemaPath = file.path.replace('.data.js', schemaSuffix);
         const fileName = path.basename(file.path);
 
-        if (fileName.indexOf(ignorePrefix) === 0) {
-            done(null, file);
-            return;
-        }
-
         if (!fs.existsSync(schemaPath)) {
             if (fileName.indexOf(ignorePrefix) === 0) {
                 done(null, file);
